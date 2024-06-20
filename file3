@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Function to calculate tax
+calculate_tax() {
+    local salary=$1
+    local tax=0
+
+    if (( salary <= 20000 )); then
+        tax=0
+    elif (( salary > 20000 && salary <= 40000 )); then
+        tax=$(echo "$salary * 0.05" | bc)
+    elif (( salary > 40000 && salary <= 100000 )); then
+        tax=$(echo "$salary * 0.10" | bc)
+    else
+        tax=$(echo "$salary * 0.02" | bc)
+    fi
+
+    echo "Salary: $salary"
+    echo "Tax: $tax"
+}
+
+# Read salary from user input
+read -p "Enter your salary: " salary
+
+# Check if the input is a valid number
+if [[ ! $salary =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+    echo "Invalid input. Please enter a valid number."
+    exit 1
+fi
+
+# Calculate and display the tax
+calculate_tax $salary
