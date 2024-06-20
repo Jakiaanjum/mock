@@ -1,0 +1,19 @@
+a=echo " enter a numner "
+b=echo " enetr a number "
+read a
+read b
+if c= $(($a+$b))
+then 
+echo " addition of number $c "
+elif d=$(($a-$b))
+then 
+echo " subtraction of numbers $d "
+elif e=$(($a*$b))
+then
+echo " multiplication of numbers $e "
+elif f=$(($a/$b))
+then
+echo " division of number $d "
+else g=$(($a%$b))
+echo " modulos of number "
+fi 
